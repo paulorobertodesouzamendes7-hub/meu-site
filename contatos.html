@@ -1,69 +1,104 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title> Contato</title>
-           <style>
-body{
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #f4f4f4;
-    text-align: center;
-    margin: 0;
-}
 
-nav{
-    background-color: #555;
-    padding: 15px;
-}
+<head>
+    <title>Contato</title>
 
-nav a{
-    color: white;
-    margin: 0 15px;
-    text-decoration: none;
-    font-weight: bold;
-}
+    <style>
 
-nav a:hover{
-    text-decoration: underline;
-}
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            margin: 0;
+        }
 
-.container{
-    background-color: white;
-    width: 600px;
-    margin: 50px auto;
-    padding: 30px;
-    border-radius: 8px;
-}
+        nav {
+            background-color: #555;
+            padding: 15px;
+        }
 
-h1{
-    margin-top: 0;
-}
-</style>
-        <style>
-    body{
-        text-align: center;
-    }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
 
-   </style>
-    </head>
+        nav a:hover {
+            text-decoration: underline;
+        }
 
-    <body>
-<h1>Contato comigo</h1>
+        .container {
+            background-color: white;
+            width: 600px;
+            margin: 50px auto;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        }
+
+        input {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
 <nav>
     <a href="index.html">Início</a>
     <a href="sobre.html">Sobre mim</a>
     <a href="projetos.html">Projetos</a>
-    <a href="galeria.html">Galeria</a>
+    <a href="Novidades.html">Novidades</a>
     <a href="contatos.html">Contato</a>
 </nav>
-<div class="container">
-<h2>Contato</h2>
-<p>Entre em contato comigo através do email:</p>
-<p><b>pauloroberto15m7@gmail.com</b></p>
 
-<p>Instagram:</p>
-<p><b>@paulinho7.sz</b></p>
+<div class="container">
+
+<h1>Contato comigo</h1>
+
+<p>Preencha seus dados:</p>
+
+<form>
+
+<input type="text" placeholder="Digite seu nome" required>
+<br>
+
+<input type="tel" placeholder="Digite seu celular" required>
+<br><br>
+
+<button type="submit">Enviar</button>
+
+</form>
+
+<p>Email: <b>pauloroberto15m7@gmail.com</b></p>
+<p>Instagram: <b>@paulinho7.sz</b></p>
 
 </div>
 
+<footer>
+<p>© 2026 - Portal Tecnologia</p>
+</footer>
+
 </body>
-  
+</html>
