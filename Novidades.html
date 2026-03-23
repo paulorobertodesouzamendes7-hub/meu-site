@@ -1,103 +1,311 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
-<meta charset="UTF-8">
-<title>Novidades</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>Novidades | Paulo Roberto</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background-color: #f4f4f4;
-            text-align: center;
+        * {
             margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            color: #333;
+        }
+
+        /* MENU LATERAL */
         nav {
-            background-color: #555;
-            padding: 15px;
+            width: 250px;
+            height: 100vh;
+            background: linear-gradient(180deg, #1e3a8a 0%, #1e40af 100%);
+            padding-top: 40px;
+            padding-left: 0;
+            position: fixed;
+            left: 0;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 4px 0 15px rgba(0, 0, 0, 0.3);
+        }
+
+        nav::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
         }
 
         nav a {
+            display: block;
             color: white;
-            margin: 0 15px;
+            padding: 16px 25px;
             text-decoration: none;
-            font-weight: bold;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+            position: relative;
+            letter-spacing: 0.5px;
         }
 
         nav a:hover {
-            text-decoration: underline;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-left-color: #667eea;
+            padding-left: 35px;
+            color: #a5b4fc;
         }
 
+        /* CONTEÚDO PRINCIPAL */
         .container {
-            background-color: white;
-            width: 600px;
-            margin: 50px auto;
-            padding: 30px;
-            border-radius: 8px;
+            margin-left: 250px;
+            padding: 40px 50px;
+            width: calc(100% - 250px);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            background: white;
+            min-height: 100vh;
+        }
+
+        @keyframes glow {
+            0%, 100% { text-shadow: 0 0 10px rgba(102, 126, 234, 0.5); }
+            50% { text-shadow: 0 0 20px rgba(118, 75, 162, 0.8); }
         }
 
         h1 {
-            margin-top: 0;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -1px;
         }
-    </style>
-    <style>
-        body {
-            text-align: center;
+
+        .title-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
         }
-    </style>
-    <style>
-        body {
+
+        .title-image {
+            width: 120px;
+            height: 120px;
+            object-fit: contain;
+            object-position: center;
+            border-radius: 50%;
+            border: 3px solid #667eea;
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3);
+            background: #f8f9fa;
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            width: 100%;
+            max-width: 1000px;
+            margin-bottom: 40px;
+        }
+
+        .news-card {
+            background: white;
+            border-left: 5px solid #667eea;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+      
+        .news-card:hover {
+            border-left-color: #764ba2;
+            box-shadow: 0 12px 35px rgba(102, 126, 234, 0.35);
+        }
+
+        .news-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 12px 12px 0 0;
+        }
+
+        .news-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .news-card h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            color: #667eea;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .news-date {
+            color: #999;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .news-card p {
+            color: #666;
+            line-height: 1.8;
+            font-size: 0.95rem;
+            text-align: justify;
+        }
+
+        .footer-section {
+            width: 100%;
+            padding-top: 30px;
+            border-top: 2px solid #f0f0f0;
             text-align: center;
+            color: #999;
+            font-size: 0.9rem;
+        }
+
+        .footer-section p {
+            margin: 5px 0;
+        }
+
+        /* RESPONSIVO */
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+            }
+
+            nav {
+                width: 100%;
+                height: auto;
+                position: relative;
+                padding-top: 0;
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            nav a {
+                padding: 12px 20px;
+                border-left: none;
+                border-bottom: 2px solid transparent;
+            }
+
+            nav a:hover {
+                border-left-color: transparent;
+                border-bottom-color: #667eea;
+                padding-left: 20px;
+            }
+
+            .container {
+                margin-left: 0;
+                width: 100%;
+                padding: 30px 20px;
+            }
+
+            h1 {
+                font-size: 2.2rem;
+            }
+
+            .title-section {
+                gap: 10px;
+            }
+
+            .title-image {
+                width: 80px;
+                height: 80px;
+            }
+
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 
 <body>
-    <h1>novidades</h1>
     <nav>
-        <a href="index.html">Início</a>
-        <a href="sobre.html">Sobre mim</a>
-        <a href="projetos.html">Projetos</a>
-        <a href="Novidades.html">Novidades</a>
-        <a href="contatos.html">Contato</a>
+        <a href="index.html"><i class="fas fa-home"></i> Início</a>
+        <a href="sobre.html"><i class="fas fa-user"></i> Sobre mim</a>
+        <a href="projetos.html"><i class="fas fa-briefcase"></i> Projetos</a>
+        <a href="Novidades.html"><i class="fas fa-bell"></i> Novidades</a>
+        <a href="contatos.html"><i class="fas fa-envelope"></i> Contato</a>
     </nav>
+
     <div class="container">
-        <header>
-<h1>Novidades da Tecnologia 💻</h1>
-<p>Fique por dentro das novidades do mundo da tecnologia</p>
-</header>
+        <div class="title-section">
+            <h1>Novidades da Tecnologia</h1>
+            <img src="projetos2.jpg" alt="Tecnologia" class="title-image">
+        </div>
 
-<div class="container">
+        <div class="news-grid">
+            <div class="news-card">
+                <span class="news-icon">🤖</span>
+                <h2>Avanço da Inteligência Artificial</h2>
+                <span class="news-date">Março 2026</span>
+                <p>A inteligência artificial continua crescendo e sendo utilizada por empresas para automatizar processos, melhorar atendimentos e analisar grandes quantidades de dados em tempo real.</p>
+            </div>
 
-<div class="noticia">
-<h2>🤖 Avanço da Inteligência Artificial</h2>
-<p class="data">Março 2026</p>
-<p>A inteligência artificial continua crescendo e sendo utilizada por empresas para automatizar processos, melhorar atendimentos e analisar grandes quantidades de dados.</p>
-</div>
+            <div class="news-card">
+                <span class="news-icon">☁️</span>
+                <h2>Crescimento da Computação em Nuvem</h2>
+                <span class="news-date">Março 2026</span>
+                <p>Serviços de computação em nuvem estão cada vez mais populares. Empresas utilizam plataformas como AWS, Google Cloud e Azure para armazenar dados e rodar aplicações com escalabilidade.</p>
+            </div>
 
-<div class="noticia">
-<h2>☁️Crescimento da Computação em Nuvem</h2>
-<p class="data">Março 2026</p>
-<p>Serviços de computação em nuvem estão cada vez mais populares. Empresas utilizam plataformas como AWS, Google Cloud e Azure para armazenar dados e rodar aplicações.</p>
-</div>
+            <div class="news-card">
+                <span class="news-icon">📱</span>
+                <h2>Novas Tecnologias em Smartphones</h2>
+                <span class="news-date">Fevereiro 2026</span>
+                <p>Fabricantes de celulares continuam lançando aparelhos com processadores mais rápidos, melhores câmeras e integração com inteligência artificial para melhor experiência do usuário.</p>
+            </div>
 
-<div class="noticia">
-<h2>📱 Novas tecnologias em smartphones</h2>
-<p class="data">Fevereiro 2026</p>
-<p>Fabricantes de celulares continuam lançando aparelhos com processadores mais rápidos, melhores câmeras e integração com inteligência artificial.</p>
-</div>
+            <div class="news-card">
+                <span class="news-icon">🔒</span>
+                <h2>Segurança Digital em Alta</h2>
+                <span class="news-date">Fevereiro 2026</span>
+                <p>Com o aumento de ataques cibernéticos, empresas estão investindo mais em segurança digital, protocolos de criptografia e proteção de dados sensíveis dos usuários.</p>
+            </div>
+        </div>
 
-<div class="noticia">
-<h2>🔒Segurança digital em alta</h2>
-<p class="data">Fevereiro 2026</p>
-<p>Com o aumento de ataques cibernéticos, empresas estão investindo mais em segurança digital e proteção de dados.</p>
-</div>
+        <div class="footer-section">
+            <p>&copy; 2026 - Paulo Roberto | Portal Tecnologia</p>
+            <p>Desenvolvido com <i class="fas fa-heart" style="color: #667eea;"></i> e dedicação</p>
+        </div>
+    </div>
 
-</div>
-
-<footer>
-<p>© 2026 - Portal Tecnologia</p>
-</footer>
-
+    <script>
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                document.querySelectorAll('nav a').forEach(a => a.style.color = 'white');
+                link.style.color = '#a5b4fc';
+            });
+        });
+    </script>
 </body>
+
 </html>

@@ -1,90 +1,377 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 
 <head>
-    <title>Projetos</title>
+    <meta charset="UTF-8">
+    <title>Meus Projetos | Paulo Roberto</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background-color: #f4f4f4;
-            text-align: center;
+        * {
             margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            color: #333;
+        }
+
+        /* MENU LATERAL */
         nav {
-            background-color: #555;
-            padding: 15px;
+            width: 250px;
+            height: 100vh;
+            background: linear-gradient(180deg, #1e3a8a 0%, #1e40af 100%);
+            padding-top: 40px;
+            padding-left: 0;
+            position: fixed;
+            left: 0;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 4px 0 15px rgba(0, 0, 0, 0.3);
+        }
+
+        nav::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
         }
 
         nav a {
+            display: block;
             color: white;
-            margin: 0 15px;
+            padding: 16px 25px;
             text-decoration: none;
-            font-weight: bold;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+            position: relative;
+            letter-spacing: 0.5px;
         }
 
         nav a:hover {
-            text-decoration: underline;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-left-color: #667eea;
+            padding-left: 35px;
+            color: #a5b4fc;
         }
 
+        /* CONTEÚDO PRINCIPAL */
         .container {
-            background-color: white;
-            width: 600px;
-            margin: 50px auto;
-            padding: 30px;
-            border-radius: 8px;
+            margin-left: 250px;
+            padding: 40px 50px;
+            width: calc(100% - 250px);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            background: white;
+            min-height: 100vh;
+        }
+
+        @keyframes glow {
+            0%, 100% { text-shadow: 0 0 10px rgba(102, 126, 234, 0.5); }
+            50% { text-shadow: 0 0 20px rgba(118, 75, 162, 0.8); }
         }
 
         h1 {
-            margin-top: 0;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -1px;
         }
-    </style>
-    <style>
-        body {
-            text-align: center;
+
+        .title-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
         }
-    </style>
-    <style>
-        body {
+
+        .title-image {
+            width: 120px;
+            height: 120px;
+            object-fit: contain;
+            object-position: center;
+            border-radius: 12px;
+            border: 3px solid #667eea;
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3);
+            background: #f8f9fa;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            width: 100%;
+            max-width: 1000px;
+            margin-bottom: 40px;
+        }
+
+        .project-card {
+            background: white;
+            border-left: 5px solid #667eea;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.2);
+            transition: all 0.3s ease;
+        }
+
+       
+
+        .project-card:hover {
+            border-left-color: #764ba2;
+            box-shadow: 0 12px 35px rgba(102, 126, 234, 0.35);
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 12px 12px 0 0;
+        }
+
+        .project-card {
+            position: relative;
+        }
+
+        .project-icon {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            transition: all 0.3s ease;
+        }
+
+     
+        
+
+        .project-card h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            color: #667eea;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .project-card p {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+
+        .project-card ul {
+            list-style-position: inside;
+            color: #666;
+            margin-left: 0;
+        }
+
+        .project-card li {
+            margin-bottom: 8px;
+            color: #666;
+        }
+
+        .project-card li::marker {
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            object-fit: contain;
+            object-position: center;
+            border-radius: 8px;
+            margin-top: 20px;
+            background: #f8f9fa;
+            padding: 10px;
+        }
+
+        .footer-section {
+            width: 100%;
+            padding-top: 30px;
+            border-top: 2px solid #f0f0f0;
             text-align: center;
+            color: #999;
+            font-size: 0.9rem;
+        }
+
+        .footer-section p {
+            margin: 5px 0;
+        }
+
+        /* RESPONSIVO */
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+            }
+
+            nav {
+                width: 100%;
+                height: auto;
+                position: relative;
+                padding-top: 0;
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            nav a {
+                padding: 12px 20px;
+                border-left: none;
+                border-bottom: 2px solid transparent;
+            }
+
+            nav a:hover {
+                border-left-color: transparent;
+                border-bottom-color: #667eea;
+                padding-left: 20px;
+            }
+
+            .container {
+                margin-left: 0;
+                width: 100%;
+                padding: 30px 20px;
+            }
+
+            h1 {
+                font-size: 2.2rem;
+            }
+
+            .title-section {
+                gap: 10px;
+            }
+
+            .title-image {
+                width: 80px;
+                height: 80px;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 
 <body>
-
-    <h1>Meus Projetos</h1>
-
     <nav>
-        <a href="index.html">Início</a>
-        <a href="sobre.html">Sobre mim</a>
-        <a href="projetos.html">Projetos</a>
-        <a href="Novidades.html">Novidades</a>
-        <a href="contatos.html">Contato</a>
+        <a href="index.html"><i class="fas fa-home"></i> Início</a>
+        <a href="sobre.html"><i class="fas fa-user"></i> Sobre mim</a>
+        <a href="projetos.html"><i class="fas fa-briefcase"></i> Projetos</a>
+        <a href="Novidades.html"><i class="fas fa-bell"></i> Novidades</a>
+        <a href="contatos.html"><i class="fas fa-envelope"></i> Contato</a>
     </nav>
+
     <div class="container">
-        <h2>1. Assistente com Inteligência Artificial</h2>
-        <p>Vou amostrar meu projetos futuros de programação.</p>
-        <p>problemas, responder perguntas ou ajudar em estudos.</p>
-        <p>Exemplo: um assistente para alunos tirarem dúvidas de programação. </p>
-        <h2>2. Aplicativo de Organização Pessoal</h2>
-        <p>Criar um app para celular ou site que ajude pessoas a organizar tarefas, estudos e compromissos.</p>
-        Pode ter:<p>
+        <div class="title-section">
+            <h1>Meus Projetos Futuros</h1>
+            <img src="pp..png" alt="Projetos Futuros" class="title-image">
+        </div>
+        
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-icon">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <h2>Assistente com IA</h2>
+                <p>Um assistente inteligente capaz de resolver problemas, responder perguntas e ajudar em estudos.</p>
+                <p><strong>Objetivo especial:</strong> Criar um assistente para alunos tirarem dúvidas de programação em tempo real.</p>
+                <ul>
+                    <li>Processamento de linguagem natural</li>
+                    <li>Base de conhecimento em programação</li>
+                    <li>Interface intuitiva</li>
+                </ul>
+            </div>
 
-        <p>lista de tarefas</p>
+            <div class="project-card">
+                <div class="project-icon">
+                    <i class="fas fa-tasks"></i>
+                </div>
+                <h2>Aplicativo de Organização</h2>
+                <p>Um app para celular ou site que ajuda pessoas a organizar tarefas, estudos e compromissos.</p>
+                <p><strong>Funcionalidades:</strong></p>
+                <ul>
+                    <li>Lista de tarefas dinâmica</li>
+                    <li>Sistema de lembretes</li>
+                    <li>Metas diárias</li>
+                    <li>Sincronização em nuvem</li>
+                </ul>
+            </div>
 
-        <p>lembretes</p>
+            <div class="project-card">
+                <div class="project-icon">
+                    <i class="fas fa-code"></i>
+                </div>
+                <h2>Portfólio Pessoal</h2>
+                <p>Um site profissional para apresentar meus projetos, habilidades e experiências.</p>
+                <p><strong>Tecnologias utilizadas:</strong></p>
+                <ul>
+                    <li>HTML5 semântico</li>
+                    <li>CSS3 moderno com gradientes</li>
+                    <li>JavaScript interativo</li>
+                    <li>Design responsivo</li>
+                </ul>
+            </div>
 
-        <p>metas diárias.</p>
+            <div class="project-card">
+                <div class="project-icon">
+                    <i class="fas fa-project-diagram"></i>
+                </div>
+                <h2>Projetos Futuros</h2>
+                <p>Continuarei desenvolvendo novos projetos para aprimorar minhas habilidades.</p>
+                <p><strong>Próximas metas:</strong></p>
+                <ul>
+                    <li>Aplicativos mobile</li>
+                    <li>Sistemas web avançados</li>
+                    <li>APIs REST</li>
+                    <li>Bancos de dados</li>
+                </ul>
+            </div>
+        </div>
 
-        <img src="pp..png" width="200">
+        <div class="footer-section">
+            <p>&copy; 2026 - Paulo Roberto | Portal Tecnologia</p>
+            <p>Desenvolvido com <i class="fas fa-heart" style="color: #667eea;"></i> e dedicação</p>
+        </div>
+    </div>
 
+    <script>
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                document.querySelectorAll('nav a').forEach(a => a.style.color = 'white');
+                link.style.color = '#a5b4fc';
+            });
+        });
+    </script>
 </body>
 
-<footer>
-<p>© 2026 - Portal Tecnologia</p>
-</footer>
-
-</body>
 </html>
